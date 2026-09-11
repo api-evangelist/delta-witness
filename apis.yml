@@ -1,0 +1,66 @@
+name: DELTA Witness — Trust Layer for Autonomous Actions
+description: >-
+  Machine-verifiable capture and preflight verification of public web sources. Returns timestamped content hashes plus a
+  public verifier, keeping raw capture artifacts private. Access is payment-gated via the x402 v2 protocol using USDC on
+  Base mainnet. Proves observation and change, not truth.
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/delta-witness-trust-layer-for-autonomous-actions/refs/heads/main/apis.yml
+created: '2026-09-11'
+modified: '2026-09-11'
+specificationVersion: '0.21'
+tags:
+  - web-verification
+  - proof-of-observation
+  - page-state-monitoring
+  - content-hashing
+  - agent-guardrails
+  - preflight-checks
+  - x402-payments
+  - pay-per-use
+  - base-usdc
+  - autonomous-agents
+  - mcp
+  - a2a
+  - agent-skill
+  - trust-and-safety
+apis:
+  - name: DELTA Witness API
+    description: >-
+      REST API for machine-verifiable capture and preflight verification of public web sources, with x402 payment-gated
+      access. Includes capture, preflight/guard, guarded-action pilot, quote, proofs, and demo operations.
+    humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+    baseURL: https://delta-witness-api.ruphussten.workers.dev
+    tags:
+      - web-verification
+      - proof-of-observation
+      - page-state-monitoring
+      - content-hashing
+      - agent-guardrails
+      - preflight-checks
+      - x402-payments
+      - pay-per-use
+      - base-usdc
+      - autonomous-agents
+      - mcp
+      - a2a
+      - agent-skill
+      - trust-and-safety
+    properties:
+      - type: OpenAPI
+        url: https://delta-witness-api.ruphussten.workers.dev/openapi.json
+      - type: PostmanCollection
+        url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+      - type: Documentation
+        url: https://delta-witness-api.ruphussten.workers.dev/docs
+      - type: AgentSkill
+        url: https://delta-witness-api.ruphussten.workers.dev/SKILL.md
+      - type: LLMsTxt
+        url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+maintainers:
+  - FN: DELTA Witness
+    url: https://delta-witness-api.ruphussten.workers.dev
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-09-11T15:17:37.825Z'
