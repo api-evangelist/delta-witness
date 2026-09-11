@@ -1,0 +1,13 @@
+# DELTA Witness
+
+> Trust Layer for Autonomous Actions
+
+- [API guide](https://delta-witness-api.ruphussten.workers.dev/docs)
+- [OpenAPI](https://delta-witness-api.ruphussten.workers.dev/openapi.json)
+- [Agent skill](https://delta-witness-api.ruphussten.workers.dev/SKILL.md)
+- [x402 discovery](https://delta-witness-api.ruphussten.workers.dev/.well-known/x402)
+- [Agent preflight](https://delta-witness-api.ruphussten.workers.dev/use-cases/agent-preflight)
+- [$10 Guarded-Action Pilot](https://delta-witness-api.ruphussten.workers.dev/v1/quote?product=guarded-action-pilot)
+- [Terms before purchase](https://delta-witness-api.ruphussten.workers.dev/use-cases/terms-before-purchase)
+- [Source change monitoring](https://delta-witness-api.ruphussten.workers.dev/use-cases/source-change-monitoring)
+- [Base app](https://delta-witness-app.pages.dev/)

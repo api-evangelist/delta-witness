@@ -1,0 +1,40 @@
+generated: '2026-09-11'
+method: searched
+source: >-
+  MCP registry (registry.modelcontextprotocol.io, io.github.15998194110/delta-witness),
+  npm (delta-witness-mcp), and the first-party monorepo
+  github.com/15998194110/delta-witness/packages/mcp-server.
+name: DELTA Witness MCP
+description: >-
+  First-party MCP server exposing the paid DELTA Witness Capture and Guard
+  (preflight) tools for public-source observation before autonomous actions.
+deployment:
+  mode: local-stdio
+  install: npx -y delta-witness-mcp@0.7.0
+  package: https://www.npmjs.com/package/delta-witness-mcp
+  auth: unknown
+  verified: searched
+  note: >-
+    No hosted/remote MCP HTTP endpoint is published; the server is distributed as
+    an npm package launched over stdio. A human must install and run it before an
+    agent can reach it. Registered active in the MCP registry as
+    io.github.15998194110/delta-witness, npm delta-witness-mcp v0.7.0
+    (published 2026-09-06, transport: stdio). The underlying paid operations
+    still require x402 USDC-on-Base settlement per call.
+registry:
+  mcp_registry: io.github.15998194110/delta-witness
+  status: active
+  version: 0.7.0
+tools:
+  - name: capture
+    description: >-
+      Observe a public webpage independently and return timestamped proof
+      metadata and content hashes.
+    backing_operation: browserVerificationPageStateProof
+    price_usd: 1
+  - name: preflight
+    description: >-
+      Observe a public source and deterministically compare it with supplied
+      expectations or a prior DELTA proof before an autonomous action.
+    backing_operation: preflightAutonomousAction
+    price_usd: 5

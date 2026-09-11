@@ -1,0 +1,55 @@
+generated: '2026-09-11'
+method: probed
+source: >-
+  Anonymous GET probes of /.well-known/* and related discovery paths on every
+  host this record knows.
+hosts:
+  - host: delta-witness-api.ruphussten.workers.dev
+    documents:
+      - path: /.well-known/agent.json
+        status: 200
+        file: ../a2a/delta-witness-agent-card.json
+        note: Real A2A-style agent card (see a2a/). Legacy pre-0.3 path.
+      - path: /.well-known/api-catalog
+        status: 200
+        file: delta-witness-api-catalog.json
+        note: >-
+          Real JSON api-catalog document naming the OpenAPI and Agent Skill URLs.
+      - path: /.well-known/x402
+        status: 200
+        file: delta-witness-x402.json
+        note: >-
+          Real x402 v2 payment-discovery document (not an IETF well-known name;
+          x402-native). Lists the three paid resources with input schemas.
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: delta-witness-app.pages.dev
+    documents:
+      - path: /.well-known/agent.json
+        status: 200
+        note: >-
+          FALSE POSITIVE. This host is a single-page app whose catch-all returns
+          the same index.html shell (HTTP 200) for every path, including
+          nonexistent ones. No real well-known document is served here.
+      - path: /.well-known/security.txt
+        status: 200
+        note: SPA shell, not a document (same catch-all as above).
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        note: SPA shell, not a document.
+  - host: delta-witness-partner-gateway.ruphussten.workers.dev
+    documents:
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/x402
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404

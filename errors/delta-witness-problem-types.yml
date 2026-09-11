@@ -1,0 +1,47 @@
+generated: '2026-09-11'
+method: derived
+source: >-
+  Derived from the 4xx/5xx responses declared in
+  openapi/delta-witness-openapi.json (v0.7.0) and the partner-gateway spec.
+format: custom-json
+envelope:
+  shape: '{"error": "<message>"}'
+  content_type: application/json
+  note: >-
+    Not RFC 9457 / application/problem+json. Errors are a flat {error} string on
+    the public API.
+problem_types:
+  - status: 400
+    title: Request rejected
+    meaning: >-
+      Invalid request body (e.g. non-public/unsafe target URL, malformed input,
+      or idempotency-identity mismatch).
+  - status: 402
+    title: Payment required
+    meaning: >-
+      x402 v2 payment required or settlement failed. The response carries the
+      x402 accepts[] challenge (USDC on Base). On the partner gateway, 402 also
+      means the partner net price or prepaid balance is below DELTA's live margin
+      floor.
+  - status: 409
+    title: Payment replay conflict
+    meaning: A settled payment was replayed with a different request body.
+  - status: 413
+    title: Request rejected (too large)
+    meaning: Request payload exceeded accepted limits.
+  - status: 502
+    title: Settled observation failed
+    meaning: >-
+      Downstream observation failed after settlement; an identical retry remains
+      idempotent (same fulfillment, no double charge).
+  - status: 401
+    title: Marketplace proxy not authenticated
+    meaning: >-
+      Partner gateway only — missing/invalid x-delta-partner-secret header.
+  - status: 429
+    title: Rate limit exceeded
+    meaning: >-
+      Partner gateway only — partner or end-user rate limit exceeded.
+  - status: 404
+    title: Not found
+    meaning: Unknown proof_id or watch_id.

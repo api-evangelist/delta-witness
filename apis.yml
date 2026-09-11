@@ -4,7 +4,7 @@ description: >-
   public verifier, keeping raw capture artifacts private. Access is payment-gated via the x402 v2 protocol using USDC on
   Base mainnet. Proves observation and change, not truth.
 url: >-
-  https://raw.githubusercontent.com/api-evangelist/delta-witness-trust-layer-for-autonomous-actions/refs/heads/main/apis.yml
+  https://raw.githubusercontent.com/api-evangelist/delta-witness/refs/heads/main/apis.yml
 created: '2026-09-11'
 modified: '2026-09-11'
 specificationVersion: '0.21'
@@ -48,6 +48,8 @@ apis:
     properties:
       - type: OpenAPI
         url: https://delta-witness-api.ruphussten.workers.dev/openapi.json
+      - type: OpenAPI
+        url: openapi/delta-witness-openapi.json
       - type: PostmanCollection
         url: https://delta-witness-api.ruphussten.workers.dev/postman.json
       - type: Documentation
@@ -56,11 +58,71 @@ apis:
         url: https://delta-witness-api.ruphussten.workers.dev/SKILL.md
       - type: LLMsTxt
         url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+  - name: DELTA Witness Partner Gateway
+    description: >-
+      Authenticated reseller rail (apiKey x-delta-partner-secret) for DELTA Capture, Guard, and finite prepaid recurring
+      Watch. Marketplace billing must complete before calling this gateway.
+    humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+    baseURL: https://delta-witness-partner-gateway.ruphussten.workers.dev
+    tags:
+      - reseller
+      - partner-gateway
+      - recurring-watch
+      - page-state-monitoring
+      - agent-guardrails
+    properties:
+      - type: OpenAPI
+        url: openapi/delta-witness-partner-gateway-openapi.json
 maintainers:
   - FN: DELTA Witness
+    email: ruphussten@163.com
     url: https://delta-witness-api.ruphussten.workers.dev
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 95
   at: '2026-09-11T15:17:37.825Z'
+common:
+- type: Website
+  url: https://delta-witness-api.ruphussten.workers.dev
+- type: DomainSecurity
+  url: security/delta-witness-domain-security.yml
+- type: SDKs
+  url: packages/delta-witness-packages.yml
+- type: Packages
+  url: packages/delta-witness-packages.yml
+- type: MCPServer
+  url: mcp/delta-witness-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/delta-witness-tool-crosswalk.yml
+- type: AgentCard
+  url: a2a/delta-witness-a2a.yml
+- type: WellKnown
+  url: well-known/delta-witness-well-known.yml
+- type: Overlay
+  url: overlays/delta-witness-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/delta-witness-conformance.yml
+- type: ErrorCatalog
+  url: errors/delta-witness-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/delta-witness-lifecycle.yml
+- type: Authentication
+  url: authentication/delta-witness-authentication.yml
+- type: Conventions
+  url: conventions/delta-witness-conventions.yml
+- type: Idempotency
+  url: conventions/delta-witness-conventions.yml
+- type: Plans
+  url: plans/delta-witness-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/delta-witness-rate-limits.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: GitHubOrganization
+  url: https://github.com/15998194110/delta-witness
+x-enrichment:
+  date: '2026-09-11'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v3

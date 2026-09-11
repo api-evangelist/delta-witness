@@ -1,0 +1,42 @@
+generated: '2026-09-11'
+method: probed
+source: >-
+  Live /v1/quote machine endpoint (product=capture and product=guarded-action-pilot),
+  /.well-known/x402, and the OpenAPI x-payment-info blocks. No subscription tiers
+  are published; DELTA is strictly pay-per-call via x402.
+model: pay-per-use
+currency: USDC
+network: eip155:8453 (Base mainnet)
+billing: per-call, upfront x402 settlement (no subscription)
+plan_count: 3
+plans:
+  - name: Capture
+    price: '1'
+    currency: USD
+    unit: per call
+    operation: POST /v1/capture
+    note: >-
+      Floor-aware price; /v1/quote?product=capture reports configuredPriceUsd 1,
+      minimumPriceUsd ~0.0082, target margin 6500bps.
+  - name: Preflight (Guard)
+    price: '5'
+    currency: USD
+    unit: per call
+    operation: POST /v1/preflight
+  - name: Guarded-Action Pilot
+    price: '10'
+    currency: USD
+    unit: flat package (1-3 URLs + optional 1 preflight)
+    operation: POST /v1/guarded-action-pilot
+    note: Exactly $10, no subscription. Confirmed via /v1/quote?product=guarded-action-pilot.
+free_surface:
+  - GET /health
+  - GET /v1/quote
+  - GET /v1/demo
+  - GET /v1/proofs/{proof_id}
+recurring_watch:
+  available: partner-only
+  note: >-
+    Recurring Watch is sold only through authenticated prepaid partner/reseller
+    gateways (delta-witness-partner-gateway.ruphussten.workers.dev), not the
+    public API.

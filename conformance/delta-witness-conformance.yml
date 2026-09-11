@@ -1,0 +1,40 @@
+generated: '2026-09-11'
+method: derived
+source: >-
+  openapi/delta-witness-openapi.json (v0.7.0), the live /.well-known/x402
+  discovery document, and observed HTTP 402 payment challenges on /v1/capture.
+entries:
+  - id: x402
+    name: x402 v2 machine-payment protocol
+    conforms: true
+    evidence: >-
+      /.well-known/x402 declares x402Version 2 with resources[] and inputSchemas;
+      POST /v1/capture returns HTTP 402 with an x402 v2 `payment-required` header
+      and an accepts[] block (scheme "exact", network eip155:8453, USDC asset,
+      payTo, maxTimeoutSeconds). The x402 payment-flow is "upfront".
+  - id: rfc9457
+    name: RFC 9457 Problem Details
+    conforms: false
+    evidence: >-
+      4xx bodies use a plain {"error": string} envelope with content-type
+      application/json, not application/problem+json.
+  - id: idempotency
+    name: Idempotent write replay
+    conforms: true
+    evidence: >-
+      All paid POST operations replay an identical settled payment as the same
+      fulfillment (idempotent_replay flag; 200/202) and reject a mismatched
+      replay with 409.
+domain_standard_conformance:
+  - id: x402-v2
+    standard: x402 (Coinbase agent-payment protocol) v2
+    conforms: true
+    evidence: >-
+      /.well-known/x402 x402Version:2; the 402 challenge on /v1/capture carries a
+      conformant accepts[] entry (scheme exact, network eip155:8453 = Base
+      mainnet, asset 0x833589fCD6eDb6E08f4c7C32d4f71b54bdA02913 = USDC,
+      facilitator https://facilitator.payai.network). This is the provider's
+      declared market standard (machine micropayments for agents).
+    note: >-
+      Reward-only signal: DELTA's entire access model is x402-native, declared in
+      the contract itself, not merely claimed in marketing prose.

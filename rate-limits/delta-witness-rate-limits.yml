@@ -1,0 +1,20 @@
+generated: '2026-09-11'
+method: searched
+source: >-
+  openapi/delta-witness-openapi.json, the partner-gateway spec, /docs, and
+  inspection of live response headers on /v1/quote (no RateLimit/Retry-After
+  headers present).
+limit_count: 0
+public_api:
+  documented_limits: none
+  response_headers: none-observed
+  note: >-
+    No X-RateLimit-*/RateLimit-*/Retry-After headers are returned and no numeric
+    limits are documented for the public API. Access is metered economically by
+    per-call x402 payment rather than by a request-rate quota. Honest zero.
+partner_gateway:
+  exhaustion_status: 429
+  note: >-
+    The authenticated partner gateway declares a 429 "Partner or end-user rate
+    limit exceeded" response on /capture, /preflight and /watch, but the numeric
+    limit/window/burst and header names are not published.

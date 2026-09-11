@@ -1,0 +1,22 @@
+generated: '2026-09-11'
+api: DELTA Witness API
+skills:
+  - name: delta-witness-skill
+    file: delta-witness-skill.md
+    method: searched
+    source: https://delta-witness-api.ruphussten.workers.dev/SKILL.md
+    note: Provider-published Agent Skill (saved verbatim).
+  - name: delta-witness-preflight-guard
+    file: delta-witness-preflight-guard.md
+    method: generated
+    operations:
+      - quote
+      - preflightAutonomousAction
+      - verifyProof
+  - name: delta-witness-guarded-action-pilot
+    file: delta-witness-guarded-action-pilot.md
+    method: generated
+    operations:
+      - quote
+      - guardedActionPilot
+      - verifyProof

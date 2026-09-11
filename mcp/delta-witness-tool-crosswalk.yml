@@ -1,0 +1,51 @@
+generated: '2026-09-11'
+method: derived
+source: >-
+  Bound the delta-witness-mcp tool list (npm delta-witness-mcp 0.7.0 / MCP
+  registry) to OpenAPI operationIds in openapi/delta-witness-openapi.json. The
+  live MCP stdio schema was not introspected (local-stdio, payment-gated); tools
+  mapped by name and by the published x402 discovery input schemas.
+surfaces:
+  openapi: openapi/delta-witness-openapi.json
+  graphql: null
+  mcp: 'npm: delta-witness-mcp@0.7.0 (local stdio; no hosted endpoint)'
+  note: >-
+    MCP is local-stdio only. Tool inputSchemas are corroborated by the public
+    /.well-known/x402 discovery document, which publishes JSON Schemas for the
+    capture and guard resources.
+crosswalk:
+  - tool: capture
+    category: observation
+    rest:
+      - browserVerificationPageStateProof
+    binding: 1:1 to POST /v1/capture
+    confidence: high
+    note: Input {url}; paid $1 USDC on Base via x402.
+  - tool: preflight
+    category: verification
+    rest:
+      - preflightAutonomousAction
+    binding: 1:1 to POST /v1/preflight
+    confidence: high
+    note: >-
+      Input {url, prior_proof_id?, expected?, freshness_seconds?}; paid $5 USDC.
+      DELTA's "Guard" tool name maps to the preflight operation.
+mcp_only: []
+rest_only:
+  - operation: health
+    reason: Liveness endpoint, not exposed as an MCP tool.
+  - operation: quote
+    reason: Pricing quote endpoint, not exposed as an MCP tool.
+  - operation: guardedActionPilot
+    reason: >-
+      $10 bounded evidence-bundle pilot; present in REST/x402 but not in the
+      published MCP tool set.
+  - operation: verifyProof
+    reason: Public proof verifier read, not exposed as an MCP tool.
+  - operation: getDemoProof
+    reason: Free demo proof example, not exposed as an MCP tool.
+coverage:
+  mcp_tools: 2
+  mapped_high_confidence: 2
+  rest_operations_total: 7
+  rest_only: 5

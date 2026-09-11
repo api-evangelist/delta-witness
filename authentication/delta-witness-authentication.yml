@@ -1,0 +1,42 @@
+generated: '2026-09-11'
+method: searched
+source: >-
+  openapi/delta-witness-openapi.json (security: [] on all operations),
+  the /.well-known/x402 discovery document, observed 402 challenges, and
+  openapi/delta-witness-partner-gateway-openapi.json.
+summary: >-
+  The public DELTA Witness API declares no traditional authentication. Access to
+  billable operations is gated by machine payment (x402 v2) rather than by an API
+  key or OAuth token. Free operations (/health, /v1/quote, /v1/demo,
+  /v1/proofs/{id}) are open. The separate partner gateway uses an apiKey secret.
+schemes:
+  - id: x402-payment
+    type: payment
+    protocol: x402-v2
+    location: HTTP 402 challenge + payment-required header
+    network: eip155:8453
+    asset: USDC (0x833589fCD6eDb6E08f4c7C32d4f71b54bdA02913)
+    recipient: '0x1990e21bc219696ff7fbc26527dbaed335ac6367'
+    facilitator: https://facilitator.payai.network
+    applies_to:
+      - POST /v1/capture
+      - POST /v1/preflight
+      - POST /v1/guarded-action-pilot
+    note: >-
+      Not a classic securityScheme. The paid operations declare security: [] in
+      OpenAPI and enforce payment at runtime via the x402 402 flow.
+  - id: PartnerProxySecret
+    type: apiKey
+    in: header
+    name: x-delta-partner-secret
+    applies_to:
+      - partner gateway /capture, /preflight, /watch
+    host: delta-witness-partner-gateway.ruphussten.workers.dev
+    note: >-
+      Provider-managed reseller secret; must not be exposed to marketplace end
+      users. Used only on the authenticated partner rail (not the public API).
+open_operations:
+  - GET /health
+  - GET /v1/quote
+  - GET /v1/demo
+  - GET /v1/proofs/{proof_id}

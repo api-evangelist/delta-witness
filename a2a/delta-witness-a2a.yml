@@ -1,0 +1,52 @@
+generated: '2026-09-11'
+method: probed
+source: https://delta-witness-api.ruphussten.workers.dev/.well-known/agent.json
+discovery:
+  path: /.well-known/agent.json
+  canonical: false
+  host: delta-witness-api.ruphussten.workers.dev
+  note: >-
+    Served at the legacy pre-0.3 /.well-known/agent.json path; the A2A 1.0
+    canonical path /.well-known/agent-card.json returns 404 on this host.
+x-evidence:
+  fetched: '2026-09-11'
+  url: https://delta-witness-api.ruphussten.workers.dev/.well-known/agent.json
+  http_status: 200
+  content_type: application/json
+card_file: delta-witness-agent-card.json
+grade: flavored
+protocol_version: 0.2.0
+deviations:
+  - >-
+    No `capabilities` object present (A2A 1.0 requires capabilities to be an
+    object) — hard failure, so the card is graded flavored rather than
+    conformant/near-conformant.
+  - >-
+    protocolVersion is 0.2.0, a pre-1.0 A2A schema.
+  - >-
+    Card carries non-standard vendor extensions instead of the 1.0 shape:
+    top-level `protocols`, `pricing`, `payments.x402`, `intents[]`, and
+    `payout_address`. These describe a real x402/USDC-on-Base payment posture but
+    are not part of the A2A AgentCard schema.
+present_fields:
+  - protocolVersion
+  - name
+  - url
+  - version
+  - defaultInputModes
+  - defaultOutputModes
+  - skills (array of 3)
+  - description
+skills:
+  - id: capture
+    name: Capture public page state
+  - id: preflight
+    name: Preflight verification
+  - id: guarded-action-pilot
+    name: Guarded Action Pilot
+payment:
+  protocol: x402
+  network: base
+  asset: USDC
+  recipient: '0x1990e21bc219696ff7fbc26527dbaed335ac6367'
+  facilitator: https://facilitator.payai.network

@@ -1,0 +1,46 @@
+generated: '2026-09-11'
+method: searched
+source: >-
+  npm registry (registry.npmjs.org), PyPI (pypi.org), the MCP registry
+  (registry.modelcontextprotocol.io) and the first-party monorepo
+  github.com/15998194110/delta-witness/packages.
+packages:
+  - name: delta-witness-mcp
+    registry: npm
+    official: true
+    role: mcp-server
+    version: 0.7.0
+    published: '2026-09-06'
+    license: Apache-2.0
+    url: https://www.npmjs.com/package/delta-witness-mcp
+    repository: https://github.com/15998194110/delta-witness
+    install: npx -y delta-witness-mcp@0.7.0
+    note: >-
+      First-party local (stdio) MCP server exposing the paid Capture and Guard
+      tools. Registered in the MCP registry as io.github.15998194110/delta-witness.
+      Current with API v0.7.0.
+  - name: delta-witness-ruphussten
+    registry: npm
+    official: true
+    role: client-sdk
+    language: javascript
+    version: 0.7.0
+    published: '2026-09-06'
+    url: https://www.npmjs.com/package/delta-witness-ruphussten
+    repository: https://github.com/15998194110/delta-witness
+    note: >-
+      First-party JavaScript client for Capture and Guard with x402 payment
+      discovery. Current with API v0.7.0.
+  - name: delta-witness-ruphussten
+    registry: pypi
+    official: true
+    role: client-sdk
+    language: python
+    version: 0.7.0
+    published: '2026-09-06'
+    license: MIT
+    url: https://pypi.org/project/delta-witness-ruphussten/
+    repository: https://github.com/15998194110/delta-witness
+    note: >-
+      First-party Python client (httpx-based) for Capture and Guard. Current
+      with API v0.7.0.

@@ -1,0 +1,45 @@
+overlay: 1.0.0
+info:
+  title: DELTA Witness API — API Evangelist enrichment overlay
+  version: 1.0.0
+x-provenance:
+  generated: '2026-09-11'
+  method: generated
+  source: >-
+    Enhancements over openapi/delta-witness-openapi.json (v0.7.0) capturing
+    x402 payment posture, idempotency semantics, and agent-readiness tags
+    observed in the live API and its /.well-known/x402 discovery document.
+  extends: openapi/delta-witness-openapi.json
+actions:
+  - target: $.info
+    description: Record the machine-payment posture at the info level.
+    update:
+      x-payment-protocol: x402-v2
+      x-payment-network: eip155:8453
+      x-payment-asset: USDC
+      x-payment-recipient: '0x1990e21bc219696ff7fbc26527dbaed335ac6367'
+      x-payment-flow: upfront
+  - target: "$.paths['/v1/capture'].post"
+    description: >-
+      Note idempotent-replay behavior: an identical settled payment replays the
+      same fulfillment (idempotent_replay=true); a replay with a different
+      request body returns 409.
+    update:
+      x-idempotency:
+        mechanism: payment-settlement-identity
+        replay_status: 200
+        conflict_status: 409
+  - target: "$.paths['/v1/preflight'].post"
+    description: Same idempotent-replay semantics as capture.
+    update:
+      x-idempotency:
+        mechanism: payment-settlement-identity
+        replay_status: 200
+        conflict_status: 409
+  - target: "$.paths['/v1/guarded-action-pilot'].post"
+    description: Same idempotent-replay semantics; fixed $10 package.
+    update:
+      x-idempotency:
+        mechanism: payment-settlement-identity
+        replay_status: 200
+        conflict_status: 409

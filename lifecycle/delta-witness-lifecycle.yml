@@ -1,0 +1,30 @@
+generated: '2026-09-11'
+method: searched
+source: >-
+  openapi/delta-witness-openapi.json (info.version), /health, the agent card
+  availability block, and the /docs page. No dedicated versioning or deprecation
+  policy page was found.
+versioning:
+  scheme: semver-ish
+  current_version: 0.7.0
+  path_prefix: /v1
+  note: >-
+    API surface is under /v1; info.version and /health both report 0.7.0. This is
+    a pre-1.0 product; the schema bundle version is delta-proof-bundle/v0.2.
+deprecation:
+  policy: none-found
+  sunset_header: false
+  deprecation_header: false
+  deprecated_operations: []
+status:
+  status_page: null
+  health_endpoint: https://delta-witness-api.ruphussten.workers.dev/health
+  note: >-
+    No hosted status page found. Liveness is exposed at /health (returns
+    {ok, version, network, ts}).
+sla:
+  stated: best-effort
+  availability_window_hours: 168
+  source: >-
+    Agent card availability block: {"now": true, "window_hours": 168,
+    "sla": "best-effort"}.

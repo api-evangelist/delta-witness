@@ -1,0 +1,52 @@
+generated: '2026-09-11'
+method: searched
+source: >-
+  openapi/delta-witness-openapi.json (v0.7.0), the /docs page, /.well-known/x402,
+  and observed live responses (402 challenge, /v1/quote, /v1/demo).
+auth_style: >-
+  Payment-gated (x402 v2, USDC on Base). No API key/OAuth on the public API.
+  See authentication/delta-witness-authentication.yml.
+idempotency:
+  mechanism: >-
+    Payment-settlement identity. An identical settled x402 payment replays the
+    same fulfillment; the response carries idempotent_replay=true (200), or 202
+    when an identical settled fulfillment is already in progress.
+  header: null
+  conflict_status: 409
+  coverage: full
+  scope:
+    - POST /v1/capture
+    - POST /v1/preflight
+    - POST /v1/guarded-action-pilot
+  note: >-
+    Replay protection covers the entire mutating (paid) surface. A replay with a
+    different request body returns 409; a settled-but-failed observation (502)
+    remains idempotent on identical retry, preventing double charges.
+reversibility:
+  status: na
+  note: >-
+    No reversible write surface exists. DELTA's paid operations produce immutable,
+    timestamped observation proofs (capture/preflight/pilot) and do not mutate any
+    external system, so there is no cancel/refund/void/undo to document. DELTA is
+    itself the preflight safety check an agent runs BEFORE its own consequential
+    action, not the actor. dry_run is likewise na.
+pagination:
+  style: none
+  note: No list endpoints; proofs are addressed individually by proof_id.
+error_envelope:
+  shape: '{"error": "<message>"}'
+  format: custom-json
+  note: See errors/delta-witness-problem-types.yml. Not RFC 9457.
+request_id_tracing: none-observed
+versioning:
+  path_prefix: /v1
+  current_version: 0.7.0
+rate_limit_signaling:
+  public_api: none-documented
+  partner_gateway: 429 on partner/end-user limit
+  headers: none-observed
+metadata:
+  note: >-
+    Responses return proof metadata (proof_id, manifest_url, public_proof_url,
+    bundle_root, observed_at, content hashes html/markdown/screenshot). Raw
+    artifacts remain private; only metadata and hashes are public.
