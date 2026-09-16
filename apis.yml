@@ -16,6 +16,21 @@ tags:
   - agent-guardrails
   - preflight-checks
   - x402-payments
+  - Pay-Per-Use
+  - base-usdc
+  - Autonomous Agents
+  - MCP
+  - A2A
+  - AgentSkill
+  - Trust and Safety
+tags_raw:
+  - web-verification
+  - proof-of-observation
+  - page-state-monitoring
+  - content-hashing
+  - agent-guardrails
+  - preflight-checks
+  - x402-payments
   - pay-per-use
   - base-usdc
   - autonomous-agents
@@ -24,55 +39,179 @@ tags:
   - agent-skill
   - trust-and-safety
 apis:
-  - name: DELTA Witness API
-    description: >-
-      REST API for machine-verifiable capture and preflight verification of public web sources, with x402 payment-gated
-      access. Includes capture, preflight/guard, guarded-action pilot, quote, proofs, and demo operations.
-    humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-    baseURL: https://delta-witness-api.ruphussten.workers.dev
-    tags:
-      - web-verification
-      - proof-of-observation
-      - page-state-monitoring
-      - content-hashing
-      - agent-guardrails
-      - preflight-checks
-      - x402-payments
-      - pay-per-use
-      - base-usdc
-      - autonomous-agents
-      - mcp
-      - a2a
-      - agent-skill
-      - trust-and-safety
-    properties:
-      - type: OpenAPI
-        url: https://delta-witness-api.ruphussten.workers.dev/openapi.json
-      - type: OpenAPI
-        url: openapi/delta-witness-openapi.json
-      - type: PostmanCollection
-        url: https://delta-witness-api.ruphussten.workers.dev/postman.json
-      - type: Documentation
-        url: https://delta-witness-api.ruphussten.workers.dev/docs
-      - type: AgentSkill
-        url: https://delta-witness-api.ruphussten.workers.dev/SKILL.md
-      - type: LLMsTxt
-        url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
-  - name: DELTA Witness Partner Gateway
-    description: >-
-      Authenticated reseller rail (apiKey x-delta-partner-secret) for DELTA Capture, Guard, and finite prepaid recurring
-      Watch. Marketplace billing must complete before calling this gateway.
-    humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-    baseURL: https://delta-witness-partner-gateway.ruphussten.workers.dev
-    tags:
-      - reseller
-      - partner-gateway
-      - recurring-watch
-      - page-state-monitoring
-      - agent-guardrails
-    properties:
-      - type: OpenAPI
-        url: openapi/delta-witness-partner-gateway-openapi.json
+- aid: delta-witness:delta-witness-browser-verification-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions browser verification API
+  description: >-
+    The browser verification API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s)
+    for browser verification.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - browser verification
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-browser-verification-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-capture-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Capture API
+  description: >-
+    The Capture API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for capture.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Capture
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-capture-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-demo-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Demo API
+  description: >-
+    The Demo API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for demo.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Demo
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-demo-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-guarded-action-pilot-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Guarded Action Pilot API
+  description: >-
+    The guarded-action-pilot API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s)
+    for guarded-action-pilot.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - guarded-action-pilot
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-guarded-action-pilot-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-health-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Health API
+  description: >-
+    The Health API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for health.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-health-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-preflight-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Preflight API
+  description: >-
+    The Preflight API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for preflight.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Preflight
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-preflight-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-preflight-autonomous-action-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions preflight autonomous action API
+  description: >-
+    The preflight autonomous action API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s)
+    for preflight autonomous action.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - preflight autonomous action
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-preflight-autonomous-action-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-proofs-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Proofs API
+  description: >-
+    The Proofs API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for proofs.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Proofs
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-proofs-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-quote-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Quote API
+  description: >-
+    The Quote API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for quote.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Quote
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-quote-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
+- aid: delta-witness:delta-witness-watch-api
+  name: DELTA Witness — Trust Layer for Autonomous Actions Watch API
+  description: >-
+    The Watch API from DELTA Witness — Trust Layer for Autonomous Actions — 2 operation(s) for watch.
+  humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
+  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  tags:
+  - Watch
+  properties:
+  - type: OpenAPI
+    url: openapi/delta-witness-watch-api-openapi.yml
+  - type: PostmanCollection
+    url: https://delta-witness-api.ruphussten.workers.dev/postman.json
+  - type: Documentation
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  - type: LLMsTxt
+    url: https://delta-witness-api.ruphussten.workers.dev/llms.txt
 maintainers:
   - FN: DELTA Witness
     email: ruphussten@163.com
@@ -83,6 +222,8 @@ generated:
   confidence: 95
   at: '2026-09-11T15:17:37.825Z'
 common:
+- type: AgentSkill
+  url: https://delta-witness-api.ruphussten.workers.dev/SKILL.md
 - type: Website
   url: https://delta-witness-api.ruphussten.workers.dev
 - type: DomainSecurity
