@@ -21,7 +21,7 @@ tags:
   - Autonomous Agents
   - MCP
   - A2A
-  - AgentSkill
+  - Agent Skills
   - Trust and Safety
 tags_raw:
   - web-verification
@@ -185,6 +185,8 @@ apis:
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
   baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
+  - Quotes
+  tags_raw:
   - Quote
   properties:
   - type: OpenAPI
