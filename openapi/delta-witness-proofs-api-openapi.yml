@@ -1,0 +1,34 @@
+openapi: 3.2.0
+info:
+  title: DELTA Witness — Trust Layer for Autonomous Actions Proofs…
+  version: 0.7.0
+  description: Browser verification and page-state proof for public sources, plus deterministic preflight checks before an autonomous action. DELTA proves observation and change, not truth.
+  contact:
+    name: DELTA Witness
+    email: ruphussten@163.com
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  x-guidance: Call GET /v1/quote before budgeting. Capture preserves a public observation; Guard compares one with deterministic expectations; Guarded-Action Pilot bundles 1-3 public URL proofs for exactly $10. Runtime HTTP 402 payment requirements are authoritative.
+servers:
+- url: https://delta-witness-api.ruphussten.workers.dev
+tags:
+- name: Proofs
+paths:
+  /v1/proofs/{proof_id}:
+    get:
+      operationId: verifyProof
+      summary: Read public proof metadata and hashes (raw artifacts remain private)
+      security: []
+      parameters:
+      - name: proof_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Verifier metadata
+        '404':
+          description: Not found
+      tags:
+      - Proofs

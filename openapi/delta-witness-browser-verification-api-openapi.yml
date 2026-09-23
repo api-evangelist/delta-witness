@@ -1,0 +1,120 @@
+openapi: 3.2.0
+info:
+  title: DELTA Witness — Trust Layer for Autonomous Actions browser…
+  version: 0.7.0
+  description: Browser verification and page-state proof for public sources, plus deterministic preflight checks before an autonomous action. DELTA proves observation and change, not truth.
+  contact:
+    name: DELTA Witness
+    email: ruphussten@163.com
+    url: https://delta-witness-api.ruphussten.workers.dev/docs
+  x-guidance: Call GET /v1/quote before budgeting. Capture preserves a public observation; Guard compares one with deterministic expectations; Guarded-Action Pilot bundles 1-3 public URL proofs for exactly $10. Runtime HTTP 402 payment requirements are authoritative.
+servers:
+- url: https://delta-witness-api.ruphussten.workers.dev
+tags:
+- name: browser verification
+paths:
+  /v1/capture:
+    post:
+      operationId: browserVerificationPageStateProof
+      summary: Browser verification and page-state proof for a public URL
+      description: 'Capture what a public page says now and return timestamped proof metadata and hashes. Useful for browser verification and page state proof. x402 v2 upfront settlement. Current calculated price: $1.'
+      tags:
+      - browser verification
+      security: []
+      x-payment-info:
+        price:
+          mode: fixed
+          currency: USD
+          amount: '1'
+        protocols:
+        - x402: {}
+        network: eip155:8453
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              properties:
+                url:
+                  type: string
+                  pattern: ^https?://
+                  description: Public HTTP(S) webpage to observe.
+              required:
+              - url
+      responses:
+        '200':
+          description: Paid observation delivered
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - ok
+                - product
+                - proof_id
+                - manifest_url
+                - public_proof_url
+                - bundle_root
+                - observed_at
+                properties:
+                  ok:
+                    const: true
+                  product:
+                    enum:
+                    - capture
+                    - preflight
+                  proof_id:
+                    type: string
+                    pattern: ^[0-9a-fA-F-]{36}$
+                  manifest_url:
+                    type: string
+                    pattern: ^https?://
+                  public_proof_url:
+                    type: string
+                    pattern: ^https?://
+                  bundle_root:
+                    type: string
+                  observed_at:
+                    type: string
+                  safe:
+                    type:
+                    - boolean
+                    - 'null'
+                  changed:
+                    type:
+                    - boolean
+                    - 'null'
+                  reason:
+                    type: string
+                  diff:
+                    type: object
+                  idempotent_replay:
+                    type: boolean
+        '202':
+          description: An identical settled fulfillment is already in progress
+        '400':
+          description: Request rejected
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '402':
+          description: x402 v2 payment required or settlement failed
+        '409':
+          description: Payment replay attempted with a different request
+        '413':
+          description: Request rejected
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '502':
+          description: Settled observation failed; identical retry remains idempotent

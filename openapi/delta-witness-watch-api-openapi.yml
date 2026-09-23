@@ -1,0 +1,60 @@
+openapi: 3.2.0
+info:
+  title: DELTA Witness Partner Gateway Watch API
+  version: 0.6.1
+  description: Authenticated reseller rail for DELTA Capture, Guard, and finite prepaid Watch. Marketplace billing must complete before calling this gateway.
+servers:
+- url: https://delta-witness-partner-gateway.ruphussten.workers.dev
+security:
+- PartnerProxySecret: []
+tags:
+- name: Watch
+paths:
+  /watch:
+    post:
+      operationId: partnerRegisterWatch
+      responses:
+        '201':
+          description: Finite prepaid watch registered
+        '400':
+          description: Invalid request or idempotency identity
+        '401':
+          description: Marketplace proxy was not authenticated
+        '402':
+          description: Partner net price or prepaid amount is below DELTA's live margin floor
+        '429':
+          description: Partner or end-user rate limit exceeded
+        '502':
+          description: Observation failed; retry with the same idempotency identity
+      tags:
+      - Watch
+      summary: Partner register watch
+      x-summary-source: derived
+  /watch/{watch_id}:
+    get:
+      operationId: partnerGetWatch
+      parameters:
+      - name: watch_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Watch quota and latest state
+        '401':
+          description: Marketplace proxy was not authenticated
+        '404':
+          description: Watch not found
+      tags:
+      - Watch
+      summary: Partner get watch
+      x-summary-source: derived
+components:
+  securitySchemes:
+    PartnerProxySecret:
+      type: apiKey
+      in: header
+      name: x-delta-partner-secret
+      description: Provider-managed secret. Never expose it to marketplace end users.

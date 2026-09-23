@@ -1,0 +1,39 @@
+openapi: 3.2.0
+info:
+  title: DELTA Witness Partner Gateway Preflight API
+  version: 0.6.1
+  description: Authenticated reseller rail for DELTA Capture, Guard, and finite prepaid Watch. Marketplace billing must complete before calling this gateway.
+servers:
+- url: https://delta-witness-partner-gateway.ruphussten.workers.dev
+security:
+- PartnerProxySecret: []
+tags:
+- name: Preflight
+paths:
+  /preflight:
+    post:
+      operationId: partnerGuard
+      responses:
+        '200':
+          description: Guard decision and proof delivered
+        '400':
+          description: Invalid request or idempotency identity
+        '401':
+          description: Marketplace proxy was not authenticated
+        '402':
+          description: Partner net price or prepaid amount is below DELTA's live margin floor
+        '429':
+          description: Partner or end-user rate limit exceeded
+        '502':
+          description: Observation failed; retry with the same idempotency identity
+      tags:
+      - Preflight
+      summary: Partner guard
+      x-summary-source: derived
+components:
+  securitySchemes:
+    PartnerProxySecret:
+      type: apiKey
+      in: header
+      name: x-delta-partner-secret
+      description: Provider-managed secret. Never expose it to marketplace end users.

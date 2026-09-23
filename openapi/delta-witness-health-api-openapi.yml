@@ -1,0 +1,36 @@
+openapi: 3.2.0
+info:
+  title: Delta Witness Health API
+  x-refined-note:
+  - x-guidance differs across the merged source definitions and was not carried
+  version: '1.0'
+  description: 'Operations tagged Health across 2 of this provider''s published API definitions: delta-witness-openapi.json, delta-witness-partner-gateway-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://delta-witness-api.ruphussten.workers.dev
+- url: https://delta-witness-partner-gateway.ruphussten.workers.dev
+tags:
+- name: Health
+paths:
+  /health:
+    get:
+      operationId: health
+      security: []
+      responses:
+        '200':
+          description: Healthy
+      tags:
+      - Health
+      summary: Health
+      x-summary-source: derived
+    servers:
+    - url: https://delta-witness-api.ruphussten.workers.dev
+components:
+  securitySchemes:
+    PartnerProxySecret:
+      type: apiKey
+      in: header
+      name: x-delta-partner-secret
+      description: Provider-managed secret. Never expose it to marketplace end users.
+x-refined-from:
+- delta-witness-openapi.json
+- delta-witness-partner-gateway-openapi.json
