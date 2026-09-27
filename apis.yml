@@ -45,7 +45,6 @@ apis:
     The browser verification API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s)
     for browser verification.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
   - browser verification
   properties:
@@ -62,7 +61,7 @@ apis:
   description: >-
     The Capture API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for capture.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  baseURL: https://delta-witness-partner-gateway.ruphussten.workers.dev
   tags:
   - Capture
   properties:
@@ -79,7 +78,6 @@ apis:
   description: >-
     The Demo API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for demo.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
   - Demo
   properties:
@@ -97,7 +95,6 @@ apis:
     The guarded-action-pilot API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s)
     for guarded-action-pilot.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
   - guarded-action-pilot
   properties:
@@ -114,7 +111,7 @@ apis:
   description: >-
     The Health API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for health.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  baseURL: https://delta-witness-partner-gateway.ruphussten.workers.dev
   tags:
   - Health
   properties:
@@ -131,7 +128,7 @@ apis:
   description: >-
     The Preflight API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for preflight.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  baseURL: https://delta-witness-partner-gateway.ruphussten.workers.dev
   tags:
   - Preflight
   properties:
@@ -149,7 +146,6 @@ apis:
     The preflight autonomous action API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s)
     for preflight autonomous action.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
   - preflight autonomous action
   properties:
@@ -166,7 +162,6 @@ apis:
   description: >-
     The Proofs API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for proofs.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
   - Proofs
   properties:
@@ -183,7 +178,6 @@ apis:
   description: >-
     The Quote API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for quote.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
   tags:
   - Quotes
   tags_raw:
@@ -202,7 +196,7 @@ apis:
   description: >-
     The Watch API from DELTA Witness — Trust Layer for Autonomous Actions — 2 operation(s) for watch.
   humanURL: https://delta-witness-api.ruphussten.workers.dev/docs
-  baseURL: https://delta-witness-api.ruphussten.workers.dev
+  baseURL: https://delta-witness-partner-gateway.ruphussten.workers.dev
   tags:
   - Watch
   properties:
