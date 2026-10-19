@@ -1,0 +1,12 @@
+{
+ "url": "https://delta-witness-api.ruphussten.workers.dev/openapi.json",
+ "requested_url": "https://delta-witness-api.ruphussten.workers.dev/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 9309,
+ "sha256": "9c3d40c78397132944865d89d99aeab7ad5d4cbcdc705541b198670ba68c102e",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
