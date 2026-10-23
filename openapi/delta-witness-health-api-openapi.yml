@@ -34,3 +34,9 @@ components:
 x-refined-from:
 - delta-witness-openapi.json
 - delta-witness-partner-gateway-openapi.json
+x-provenance:
+  method: harvested
+  publisher: DELTA Witness — Trust Layer for Autonomous Actions
+  source: https://delta-witness-api.ruphussten.workers.dev/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
