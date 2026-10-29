@@ -1,4 +1,4 @@
-# delta-witness-trust-layer-for-autonomous-actions
+# DELTA Witness — Trust Layer for Autonomous Actions
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -65,3 +65,117 @@
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
 Machine-verifiable capture and preflight verification of public web sources. Returns timestamped content hashes plus a public verifier, keeping raw capture artifacts private. Access is payment-gated via the x402 v2 protocol using USDC on Base mainnet. Proves observation and change, not truth.
+
+**Areas:** web-verification · proof-of-observation · page-state-monitoring · content-hashing · agent-guardrails · preflight-checks · x402 Payments · Pay-Per-Use · base-usdc · Autonomous Agents · MCP · A2A
+
+## DELTA Witness — Trust Layer for Autonomous Actions on APIs.io
+
+Everything profiled for DELTA Witness — Trust Layer for Autonomous Actions is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/delta-witness/](https://apis.io/providers/delta-witness/)** — or go straight to one of the APIs or properties below.
+
+### APIs (10)
+
+- [DELTA Witness — Trust Layer for Autonomous Actions browser verification API](https://apis.io/apis/delta-witness/delta-witness-browser-verification-api/) — The browser verification API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for browser verification.
+- [DELTA Witness — Trust Layer for Autonomous Actions Capture API](https://apis.io/apis/delta-witness/delta-witness-capture-api/) — The Capture API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for capture.
+- [DELTA Witness — Trust Layer for Autonomous Actions Demo API](https://apis.io/apis/delta-witness/delta-witness-demo-api/) — The Demo API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for demo.
+- [DELTA Witness — Trust Layer for Autonomous Actions Guarded Action Pilot API](https://apis.io/apis/delta-witness/delta-witness-guarded-action-pilot-api/) — The guarded-action-pilot API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for guarded-action-pilot.
+- [DELTA Witness — Trust Layer for Autonomous Actions Health API](https://apis.io/apis/delta-witness/delta-witness-health-api/) — The Health API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for health.
+- [DELTA Witness — Trust Layer for Autonomous Actions Preflight API](https://apis.io/apis/delta-witness/delta-witness-preflight-api/) — The Preflight API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for preflight.
+- [DELTA Witness — Trust Layer for Autonomous Actions preflight autonomous action API](https://apis.io/apis/delta-witness/delta-witness-preflight-autonomous-action-api/) — The preflight autonomous action API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for preflight autonomous action.
+- [DELTA Witness — Trust Layer for Autonomous Actions Proofs API](https://apis.io/apis/delta-witness/delta-witness-proofs-api/) — The Proofs API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for proofs.
+- [DELTA Witness — Trust Layer for Autonomous Actions Quote API](https://apis.io/apis/delta-witness/delta-witness-quote-api/) — The Quote API from DELTA Witness — Trust Layer for Autonomous Actions — 1 operation(s) for quote.
+- [DELTA Witness — Trust Layer for Autonomous Actions Watch API](https://apis.io/apis/delta-witness/delta-witness-watch-api/) — The Watch API from DELTA Witness — Trust Layer for Autonomous Actions — 2 operation(s) for watch.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [DELTA Witness MCP](https://apis.io/servers/delta-witness/delta-witness-mcp/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Delta Witness Openapi Overlay](https://apis.io/overlays/delta-witness/delta-witness-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Delta Witness Authentication](https://apis.io/security/delta-witness/delta-witness-authentication/)
+- [Delta Witness Domain Security](https://apis.io/security/delta-witness/delta-witness-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Delta Witness Plans Pricing](https://apis.io/plans/delta-witness/delta-witness-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Delta Witness Rate Limits](https://apis.io/rate-limits/delta-witness/delta-witness-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://delta-witness-api.ruphussten.workers.dev)
+- [GitHub](https://github.com/15998194110/delta-witness)
+
+## API Evangelist rating
+
+**Kin Score 30.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.0 |
+| Contract quality | 44.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 39.8 |
+| Access clarity | 31.6 |
+
+**Agent readiness 35.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | unknown |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | flavored (partial credit) |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.2** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/delta-witness/](https://apis.io/providers/delta-witness/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DELTA Witness — Trust Layer for Autonomous Actions: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/delta-witness/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
